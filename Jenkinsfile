@@ -1,29 +1,29 @@
 pipeline{
     agent any
     stages{
-        stage('checkout the code from github'){
+        stage('checkout'){
             steps{
                  git url: 'https://github.com/akshu20791/health-care-project/'
                  echo 'github url checkout'
             }
         }
-        stage('codecompile with akshat'){
+        stage('codecompile'){
             steps{
                 echo 'starting compiling'
                 sh 'mvn compile'
             }
         }
-        stage('codetesting with akshat'){
+        stage('codetesting'){
             steps{
                 sh 'mvn test'
             }
         }
-        stage('qa with akshat'){
+        stage('qa check'){
             steps{
                 sh 'mvn checkstyle:checkstyle'
             }
         }
-        stage('package with akshat'){
+        stage('package the code'){
             steps{
                 sh 'mvn package'
             }
