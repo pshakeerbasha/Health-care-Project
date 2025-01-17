@@ -36,7 +36,7 @@ pipeline{
          }
         stage('port expose'){
             steps{
-                sh 'docker run -dt -p 8082:8082 --name c001 manoj633/healthcare'
+                sh 'docker run -dt -p 8084:8082 --name c001 manoj633/healthcare'
             }
         }   
     }
