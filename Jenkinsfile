@@ -31,11 +31,12 @@ pipeline{
         stage('run dockerfile'){
           steps{
                sh 'docker build -t myimg1 .'
+               sh 'docker tag myimg1 manoj633/healthcare:1'
            }
          }
         stage('port expose'){
             steps{
-                sh 'docker run -dt -p 8082:8082 --name c001 myimg1'
+                sh 'docker run -dt -p 8082:8082 --name c001 manoj633/healthcare'
             }
         }   
     }
