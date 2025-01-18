@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('checkout'){
             steps{
-                 git url: 'https://github.com/pshakeerbasha/health-care-project/'
+                 git url: 'https://github.com/akshu20791/health-care-project/'
                  echo 'github url checkout'
             }
         }
@@ -31,11 +31,12 @@ pipeline{
         stage('run dockerfile'){
           steps{
                sh 'docker build -t myimg1 .'
+               sh 'docker tag myimg1 manoj633/healthcare:1'
            }
          }
         stage('port expose'){
             steps{
-                sh 'docker run -dt -p 8084:8082 --name c001 myimg1'
+                sh 'docker run -dt -p 8084:8082 --name c001 manoj633/healthcare'
             }
         }   
     }
