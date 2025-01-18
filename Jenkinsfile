@@ -31,7 +31,6 @@ pipeline{
         stage('run dockerfile'){
           steps{
                sh 'docker build -t myimg1 .'
-               sh 'docker tag myimg1 pshakeerbasha/healthcare:1'
            }
          }
         stage('port expose'){
